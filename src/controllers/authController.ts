@@ -6,9 +6,9 @@ export const register = async (req: Request, res: Response) => {
   try {
     const user = await registerUser(email, password, name);
     res.status(201).json(user);
-  } catch (error) {
-    console.error(error);
-    res.status(400).json({ message: "Internal server error" });
+  } catch (error: any) {
+    const statusCode = error.statusCode || 500;
+    res.status(statusCode).json({ message: error.message }); 
   }
 };
 
@@ -17,8 +17,8 @@ export const login = async (req: Request, res: Response) => {
   try {
     const token = await loginUser(email, password);
     res.status(200).json({ token });
-  } catch (error) {
-    console.error(error);
-    res.status(400).json({ message: "Internal server error" });
+  } catch (error: any) {
+    const statusCode = error.statusCode || 500;
+    res.status(statusCode).json({ message: error.message }); 
   }
 };

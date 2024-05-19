@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm install -g prisma
 
-RUN npx prisma migrate dev --name initial
+#RUN npx prisma migrate dev --name initial
 
 RUN npm run build
 
