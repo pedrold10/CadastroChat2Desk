@@ -26,20 +26,22 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <h1>Login</h1>
-      <div>
-        <label>Email</label>
-        <input {...register('email')} />
-        <p>{errors.email?.message}</p>
-      </div>
-      <div>
-        <label>Password</label>
-        <input type="password" {...register('password')} />
-        <p>{errors.password?.message}</p>
-      </div>
-      <button type="submit">Login</button>
-    </form>
+      <form className="form-container" onSubmit={handleSubmit(onSubmit)}>
+        <h1>Login</h1>
+        <div>
+          <label>Email</label>
+          <input  {...register('email')} />
+          <p>{errors.email?.message}</p>
+        </div>
+        <div>
+          <label>Password</label>
+          <input  type="password" {...register('password')} />
+          <p>{errors.password?.message}</p>
+        </div>
+        <button type="submit">Login</button>
+        <br /><br />
+        <h3>Ainda não possui cadastro? <a href="/register">Registre-se</a></h3>
+      </form>
   );
 };
 
