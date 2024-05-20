@@ -10,6 +10,8 @@ COPY . .
 
 RUN npm install -g prisma
 
+RUN npm install --save-dev @types/cors
+
 #RUN npx prisma migrate dev --name initial
 
 RUN npm run build
